@@ -1,18 +1,28 @@
-# Object files
-*.o
-*.ko
+#include<stdio.h>
+main(){
+	FILE *fichero;
+	char mensaje[4000];
+	
+	if ((fichero=fopen("ejemplo.txt", "r"))!=NULL)
+	{
+		//printf("El fichero ejemplo.txt se ha abierto correctamente. \n");
+		//printf("Introduzca la informacion en orden, contacto, numero de IP y numero de puerto: \n\n");
+		
+		while(!feof(fichero))
+		{
+			fgets(mensaje,4000,fichero);
+			if(feof(fichero))
+			{
+				printf("\nFin de fichero");
+			}
+			else;
+				fputs(mensaje, stdout);
+		}
+		fclose(fichero);
+		
+	}
+	else
+		printf("Error al abrir fichero");
+		
 
-# Libraries
-*.lib
-*.a
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
+}
